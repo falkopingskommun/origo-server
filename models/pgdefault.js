@@ -13,12 +13,15 @@ var pgDefault = function pgDefault(queryString, queryOptions, defaultLimit) {
   var searchString;
   var limitNumber = queryOptions.limit || defaultLimit || 1000;
   var limit = ' LIMIT ' + limitNumber.toString() + ' ';
+  var layerNamne = queryOptions.layer;
+  var layer = "'" + layerNamne + "' AS LAYER, ";
 
   searchString =
     'SELECT ' +
     sqlSearchField +
     ' ' + table + '."' + gid + '" AS "GID", ' +
     type +
+    layer +
     centroid +
     ' FROM ' + schema + '.' + table +
     ' WHERE LOWER(' + table + '."' + searchField + '"' + ") ILIKE LOWER('" + condition + "%')" +
