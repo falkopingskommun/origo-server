@@ -10,7 +10,7 @@ router.post('/', postHandler);
 function postHandler(req, res) {
 
   var workbook = new excel.Workbook(); //creating workbook
-  var sheet = workbook.addWorksheet('MySheet'); //creating worksheet
+  var sheet = workbook.addWorksheet('Blad1'); //creating worksheet
 
   var objArray = req.body;
 
