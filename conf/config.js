@@ -73,5 +73,25 @@ module.exports = {
     headers: 'X-Requested-With,content-type',
     credentials: true,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  },
+  'iotproxy': {
+    services: [
+      {
+        name: "temperature",
+        url: "https://example.com/ngsi-ld/v1/entities?type=WeatherObserved&attrs=temperature",
+        title: "Temperature",
+        properties: ['temperature', 'dateObserved']
+      }
+    ]
+  },
+  'overpass': {
+    queries: [
+      {
+        name: "amenityFuelBBox",
+        query: "[out:json];node(62.1,16.2,63.0,17.8)[amenity=fuel];out;",
+        title: "Get all amenity:fuel for bbox around Sundsvall",
+        options: "{}"
+      }
+    ]
   }
 }
